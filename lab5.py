@@ -49,8 +49,8 @@ def new_order(order_id, name, email, customer_id, products,**kwargs):
     for i in range(len(products)):
         order["Product " + str(i+1)] = products[i]
         subtotal += products[i]["price"]
-    if "Discount" in kwargs.items():
-        suntotal = subtotal*(1-kwargs["Discount"])
+    if "Discount" in kwargs:
+        subtotal = subtotal*(1-kwargs["Discount"])
     order["Subtotal"] = subtotal
     return order
 # Generates a list containing 5 randomised orders
